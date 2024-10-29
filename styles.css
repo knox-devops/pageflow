@@ -1,0 +1,209 @@
+/* styles.css */
+/* Author: Knox */
+/* Build Number: 1 */
+/* Build Dates: 2024-10-13 */
+/* ----------------------------------------- */
+/* Goals: Style the canvas and controls.    */
+/* ----------------------------------------- */
+
+:root{
+    --viewport-width: 70vw;
+}
+.viewport{
+    position: absolute;
+    overflow: hidden;
+    width: var(--viewport-width)!important;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background-color: rgb(230, 230, 230);
+    box-sizing: border-box;
+}
+.viewport > canvas{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.87rem;
+    overflow: hidden;
+}
+
+#inspector{
+    width: calc(100vw - var(--viewport-width)) !important;
+    box-sizing: border-box;
+    overflow: scroll;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    padding-bottom: 20%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: fit-content;
+    background: #eeeeee;
+    padding: 2pt 6pt;
+    user-select: none;
+}
+
+.controls label {
+    display: block;
+}
+
+.toolbar button,
+.controls button {
+    border-radius: 4pt;
+    border: solid 1px #ddd;
+    padding: 3pt;
+    box-shadow: 0 0 0 0 #777;
+}
+
+.toolbar button:active,
+.controls button:active {
+    box-shadow: 0 0 2px 0 #777;
+}
+.toolbar select, 
+.toolbar input, 
+.controls select, 
+.controls input 
+{
+    border-radius: 4pt;
+    border: solid 1px #ddd;
+    float: right;
+}
+.controls select, 
+.controls input[type="number"], 
+.controls input[type="text"] 
+{
+    padding: 4pt 4pt;
+}
+.toolbar .row,
+.controls .row{
+    text-align: justify;
+    padding: 3pt 5pt;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4pt;
+    margin-bottom: 2pt;
+    background-color: #a0a0a01e;
+    box-shadow: 0 0 0 0 #777;
+    transition: all 0.3s;
+}
+.controls .row:hover{
+    box-shadow: 0 2px 5px 1px #777777a6;
+}
+/* Grid */
+.hidden{
+    display: none;
+}
+
+.group-title{
+    color: #777;
+    padding: 2pt 2pt;
+    transition: 0.3s all;
+    text-transform: capitalize;
+    font-weight: normal;
+    text-align: left;
+}
+.group-header[expanded="true"] ~ .group-content{
+    display: block;
+}
+.group-header[expanded="true"]{
+    padding: 0;
+}
+.group-header[expanded="false"]:hover > .group-title{
+    font-weight: bold;
+}
+.group-header[expanded="true"] > .group-title{
+    font-weight: bold;
+    text-align: left;
+    padding: 1pt;
+}
+.group-content{
+    display: none;
+}
+.group{
+    transition: 0.3s all;
+}
+.group.opened{
+    border-style: solid;
+    border-color: #919;
+    padding: 4pt;
+    border-radius: 4pt;
+    box-shadow: #777 0 0 4px 0;
+    margin: 10pt 0;
+    max-width: 250px;
+    transition: 0.3s all;
+}
+.group.opened >  .group-header{
+    padding: 0pt 8pt;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff7;
+}
+.top{ top: 0 !important;}
+.bottom{ bottom: 0 !important;}
+.left{ left: 0 !important;}
+.absolute{ position: absolute !important;}
+.relative{ position: relative !important;}
+.auto-size,
+.auto-height{ height: auto !important;}
+.auto-size,
+.auto-width{ width: auto !important;}
+
+.right{ right: 0 !important;}
+.hcenter{ transform: translateX(-50%); left: 50% !important;}
+.vcenter{ transform: translateY(-50%); top: 50% !important;}
+.centered{ left: 50% !important; top: 50% !important;
+     transform: translate(-50%,-50%); position: absolute;
+}
+.borderless{
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+}
+.scroller-x{
+    overflow-x: auto;
+    height: 25px;
+    width: 100% ;
+}
+.scroller-x > * {
+    display: inline;
+    word-wrap: none;
+    white-space: nowrap;
+    margin-bottom: 4px;
+    border: solid 2px black;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 25px !important;
+}
+button[active="true"]{
+    background-color: #000;
+    color: dodgerblue;
+    padding: 3pt 8pt;
+}
+.panel-content{
+    overflow: scroll;
+    border: dashed 1px green;
+}
+.panel{
+    overflow: hidden;
+}
+.panel-header{
+    position: sticky;
+}
